@@ -4,6 +4,7 @@ import StarField from "./StarField";
 import FloatingParticles from "./FloatingParticles";
 import TreasureMap from "./TreasureMap";
 import ClueModal from "./ClueModal";
+import { handleButtonClick } from "../utils/buttonEffects";
 
 function HuntPage({ onComplete, initialSolved = [] }) {
   const [solvedClues, setSolvedClues] = useState(initialSolved);
@@ -140,7 +141,7 @@ function HuntPage({ onComplete, initialSolved = [] }) {
               The vault awaits, Your Majesty. Are you ready?
             </p>
             <button
-              onClick={onComplete}
+              onClick={(e) => { handleButtonClick(e); onComplete(); }}
               style={{
                 padding: "1rem 3rem",
                 background: "linear-gradient(135deg, #FFD700, #F39C12)",

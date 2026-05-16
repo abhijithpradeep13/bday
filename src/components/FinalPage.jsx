@@ -1,14 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StarField from "./StarField";
 import FloatingParticles from "./FloatingParticles";
 import VaultDoor from "./VaultDoor";
 import MemoryGallery from "./MemoryGallery";
+import { handleButtonClick } from "../utils/buttonEffects";
+import audio1 from "../assets/audio1.mpeg";
 
 function FinalPage() {
   const [phase, setPhase] = useState("vault"); // vault | password | opening | reveal | gallery
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [shake, setShake] = useState(false);
+
+  // Play background audio when reaching gallery phase
+  useEffect(() => {
+    if (phase === "gallery") {
+      const audio = new Audio(audio1);
+      audio.loop = true;
+      audio.volume = 0.5; // Set volume to 50%
+      audio.play().catch(() => {
+        // Silently catch autoplay errors (browser autoplay restrictions)
+      });
+
+      return () => {
+        audio.pause();
+        audio.currentTime = 0;
+      };
+    }
+  }, [phase]);
 
   const VALID_ANSWERS = ["nandana", "the queen", "you", "love", "friendship", "nandana herself"];
 
@@ -58,6 +77,7 @@ function FinalPage() {
             animation: "shimmer 3s linear infinite",
             marginBottom: "0.5rem",
             textShadow: "none",
+            fontFamily: "'Comic Neue', cursive",
           }}>
             HAPPY BIRTHDAY
           </h1>
@@ -178,7 +198,7 @@ function FinalPage() {
       justifyContent: "center",
       position: "relative",
       overflow: "hidden",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Comic Neue', cursive",
       padding: "2rem 1rem",
     }}>
       <StarField />
@@ -285,7 +305,7 @@ function FinalPage() {
               }}
             />
             <button
-              onClick={handlePassword}
+              onClick={(e) => { handleButtonClick(e); handlePassword(); }}
               style={{
                 padding: "1rem",
                 borderRadius: 12,

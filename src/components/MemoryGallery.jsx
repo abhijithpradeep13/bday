@@ -1,12 +1,34 @@
+import { useEffect } from "react";
 import { MEMORIES } from "../constants";
 
 function MemoryGallery() {
+  useEffect(() => {
+    let scrollPosition = 0;
+    let scrollDirection = 1;
+    const scrollSpeed = 0.5; // Reduced speed for more leisurely viewing
+    let animationId;
+
+    const autoScroll = () => {
+      scrollPosition += scrollSpeed * scrollDirection;
+      window.scrollBy(0, scrollSpeed);
+      animationId = requestAnimationFrame(autoScroll);
+    };
+
+    animationId = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, []);
+
   return (
     <div style={{ padding: "2rem 1rem" }}>
       <h2 style={{
         textAlign: "center",
         color: "#FFD700",
-        fontFamily: "'Georgia', serif",
+        fontFamily: "'Comic Neue', cursive",
         fontSize: "clamp(1.5rem, 4vw, 2rem)",
         marginBottom: "0.5rem",
         textShadow: "0 0 20px rgba(255,215,0,0.5)",
@@ -19,9 +41,9 @@ function MemoryGallery() {
 
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(min(200px, 40vw), 1fr))",
+        gridTemplateColumns: "repeat(auto-fill, minmax(min(260px, 40vw), 1fr))",
         gap: "clamp(1rem, 3vw, 1.5rem)",
-        maxWidth: 680,
+        maxWidth: 884,
         margin: "0 auto",
       }}>
         {MEMORIES.map((mem, i) => (
@@ -45,23 +67,24 @@ function MemoryGallery() {
             {/* Photo area */}
             <div style={{
               width: "100%",
-              paddingTop: "75%",
-              background: `linear-gradient(135deg, ${["#FFD70020", "#9B59B620", "#E74C3C20", "#1ABC9C20", "#F39C1220", "#9B59B620"][i]}, ${["#F39C1220", "#FFD70020", "#9B59B620", "#FFD70020", "#E74C3C20", "#1ABC9C20"][i]})`,
+              paddingTop: "100%",
               borderRadius: 2,
               marginBottom: "0.75rem",
               position: "relative",
               overflow: "hidden",
             }}>
-              <div style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "clamp(2rem, 6vw, 3rem)",
-              }}>
-                {["👑", "⚔️", "🍌", "💛", "🌟", "🗺️"][i]}
-              </div>
+              <img
+                src={mem.image}
+                alt={mem.caption}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: 2,
+                }}
+              />
             </div>
 
             <p style={{
@@ -69,7 +92,7 @@ function MemoryGallery() {
               fontSize: "clamp(0.75rem, 2vw, 0.85rem)",
               color: "#333",
               marginBottom: "4px",
-              fontFamily: "'Georgia', serif",
+              fontFamily: "'Comic Neue', cursive",
             }}>
               {mem.caption}
             </p>

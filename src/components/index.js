@@ -1,5 +1,6 @@
 export { default as FloatingParticles } from "./FloatingParticles";
 export { default as StarField } from "./StarField";
+export { default as FloatingImages } from "./FloatingImages";
 export { default as LandingPage } from "./LandingPage";
 export { default as ClueModal } from "./ClueModal";
 export { default as TreasureMap } from "./TreasureMap";

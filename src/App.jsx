@@ -8,7 +8,8 @@ export default function App() {
   return (
     <div style={{ minHeight: "100vh" }}>
       {page === "landing" && (
-        <LandingPage onStart={() => setPage("hunt")} />
+        // TO BE DISCARDED: Added onTestBypass prop for testing purposes
+        <LandingPage onStart={() => setPage("hunt")} onTestBypass={() => setPage("final")} />
       )}
       {page === "hunt" && (
         <HuntPage

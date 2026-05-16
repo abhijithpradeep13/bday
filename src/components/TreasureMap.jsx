@@ -1,4 +1,5 @@
 import { CLUES } from "../constants";
+import { playClickSound, createClickSparkles } from "../utils/buttonEffects";
 
 function TreasureMap({ solvedClues, onSelectClue }) {
   const nodes = CLUES.map((c) => ({
@@ -63,7 +64,13 @@ function TreasureMap({ solvedClues, onSelectClue }) {
               key={node.id}
               transform={`translate(${cx}, ${cy})`}
               style={{ cursor: node.unlocked ? "pointer" : "default" }}
-              onClick={() => node.unlocked && onSelectClue(node)}
+              onClick={(e) => {
+                if (node.unlocked) {
+                  playClickSound();
+                  createClickSparkles({ currentTarget: e.target });
+                  onSelectClue(node);
+                }
+              }}
             >
               {/* Outer glow ring */}
               {node.unlocked && (
@@ -103,7 +110,7 @@ function TreasureMap({ solvedClues, onSelectClue }) {
                 fill={node.solved ? "#FFD700" : node.unlocked ? "white" : "rgba(255,255,255,0.3)"}
                 fontSize="9"
                 fontWeight={node.unlocked ? "bold" : "normal"}
-                style={{ fontFamily: "Georgia, serif" }}
+                style={{ fontFamily: "'Comic Neue', cursive" }}
               >
                 {node.solved ? "Solved!" : node.unlocked ? `Clue ${node.id}` : "Locked"}
               </text>

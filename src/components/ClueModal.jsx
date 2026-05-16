@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { handleButtonClick } from "../utils/buttonEffects";
 
 function ClueModal({ clue, onClose, onSolve, isSolved }) {
   const [input, setInput] = useState("");
@@ -51,7 +52,7 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
         animation: "scaleIn 0.3s ease",
       }}>
         {/* Close */}
-        <button onClick={onClose} style={{
+        <button onClick={(e) => { handleButtonClick(e); onClose(); }} style={{
           position: "absolute",
           top: 16,
           right: 16,
@@ -66,7 +67,11 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-        }}>✕</button>
+          transition: "background 0.2s",
+        }}
+        onMouseEnter={(e) => e.target.style.background = "rgba(255,255,255,0.2)"}
+        onMouseLeave={(e) => e.target.style.background = "rgba(255,255,255,0.1)"}
+        >✕</button>
 
         {!showReward ? (
           <>
@@ -92,7 +97,7 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
               fontSize: "clamp(1.1rem, 4vw, 1.4rem)",
               lineHeight: 1.5,
               marginBottom: "1rem",
-              fontFamily: "'Georgia', serif",
+              fontFamily: "'Comic Neue', cursive",
             }}>
               {clue.question}
             </h2>
@@ -115,14 +120,14 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
                   color: "white",
                   fontSize: "1rem",
                   outline: "none",
-                  fontFamily: "'Georgia', serif",
+                  fontFamily: "'Comic Neue', cursive",
                   transition: "border-color 0.2s ease",
                   animation: shake ? "shakeX 0.4s ease" : "none",
                 }}
                 autoFocus
               />
               <button
-                onClick={handleSubmit}
+                onClick={(e) => { handleButtonClick(e); handleSubmit(); }}
                 style={{
                   padding: "0.9rem",
                   borderRadius: 12,
@@ -132,7 +137,7 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
                   fontWeight: "bold",
                   fontSize: "1rem",
                   cursor: "pointer",
-                  fontFamily: "'Georgia', serif",
+                  fontFamily: "'Comic Neue', cursive",
                   transition: "opacity 0.2s",
                 }}
                 onMouseEnter={(e) => e.target.style.opacity = "0.85"}
@@ -163,7 +168,7 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
             <h2 style={{
               color: clue.color,
               fontSize: "clamp(1.1rem, 4vw, 1.4rem)",
-              fontFamily: "'Georgia', serif",
+              fontFamily: "'Comic Neue', cursive",
               marginBottom: "1rem",
               textShadow: `0 0 20px ${clue.color}60`,
             }}>
@@ -179,7 +184,7 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
               {clue.rewardText}
             </p>
             <button
-              onClick={onClose}
+              onClick={(e) => { handleButtonClick(e); onClose(); }}
               style={{
                 padding: "0.8rem 2rem",
                 borderRadius: 50,
@@ -188,7 +193,7 @@ function ClueModal({ clue, onClose, onSolve, isSolved }) {
                 color: clue.color,
                 cursor: "pointer",
                 fontSize: "1rem",
-                fontFamily: "'Georgia', serif",
+                fontFamily: "'Comic Neue', cursive",
                 transition: "all 0.2s ease",
               }}
               onMouseEnter={(e) => { e.target.style.background = clue.color; e.target.style.color = "#0d0a2e"; }}

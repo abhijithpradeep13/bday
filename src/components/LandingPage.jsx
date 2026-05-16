@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { STORY_SCENES } from "../constants";
 import StarField from "./StarField";
 import FloatingParticles from "./FloatingParticles";
+import FloatingImages from "./FloatingImages";
+import { handleButtonClick } from "../utils/buttonEffects";
 
-function LandingPage({ onStart }) {
+function LandingPage({ onStart, onTestBypass }) {
+  // TO BE DISCARDED: Added onTestBypass prop for testing purposes
   const [currentScene, setCurrentScene] = useState(0);
   const [visible, setVisible] = useState(true);
   const [showButton, setShowButton] = useState(false);
@@ -16,7 +19,7 @@ function LandingPage({ onStart }) {
           setCurrentScene((s) => s + 1);
           setVisible(true);
         }, 500);
-      }, 3500);
+      }, 6500);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => setShowButton(true), 800);
@@ -36,10 +39,41 @@ function LandingPage({ onStart }) {
       justifyContent: "center",
       position: "relative",
       overflow: "hidden",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Comic Neue', cursive",
     }}>
       <StarField />
       <FloatingParticles />
+      <FloatingImages />
+
+      {/* TO BE DISCARDED: Test button for development */}
+      {onTestBypass && (
+        <button
+          onClick={(e) => { handleButtonClick(e); onTestBypass(); }}
+          style={{
+            position: "absolute",
+            top: 16,
+            right: 16,
+            padding: "0.6rem 1.2rem",
+            fontSize: "0.85rem",
+            fontFamily: "'Georgia', serif",
+            fontWeight: "bold",
+            color: "#0d0a2e",
+            background: "rgba(255, 215, 0, 0.7)",
+            border: "none",
+            borderRadius: 20,
+            cursor: "pointer",
+            boxShadow: "0 0 20px rgba(255,215,0,0.3)",
+            transition: "all 0.2s ease",
+            zIndex: 20,
+          }}
+          onMouseEnter={(e) => e.target.style.background = "rgba(255, 215, 0, 1)"}
+          onMouseLeave={(e) => e.target.style.background = "rgba(255, 215, 0, 0.7)"}
+          title="Skip to Final Page"
+        >
+          TEST
+        </button>
+      )}
+      {/* TO BE DISCARDED: End of test button */}
 
       {/* Progress dots */}
       <div style={{ position: "absolute", top: 24, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 10 }}>
@@ -68,7 +102,7 @@ function LandingPage({ onStart }) {
       }}>
         {/* Emoji with glow */}
         <div style={{
-          fontSize: "clamp(64px, 15vw, 100px)",
+          fontSize: "clamp(83.2px, 19.5vw, 130px)",
           marginBottom: "1.5rem",
           filter: `drop-shadow(0 0 30px ${scene.color}80)`,
           animation: "bounce-gentle 3s ease-in-out infinite",
@@ -85,18 +119,19 @@ function LandingPage({ onStart }) {
         </div>
 
         <h1 style={{
-          fontSize: "clamp(1.4rem, 5vw, 2.2rem)",
+          fontSize: "clamp(1.82rem, 6.5vw, 2.86rem)",
           fontWeight: "bold",
           color: scene.color,
           marginBottom: "1rem",
           textShadow: `0 0 30px ${scene.color}60`,
           lineHeight: 1.3,
+          fontFamily: "'Comic Neue', cursive",
         }}>
           {scene.title}
         </h1>
 
         <p style={{
-          fontSize: "clamp(1rem, 3vw, 1.2rem)",
+          fontSize: "clamp(1.3rem, 3.9vw, 1.56rem)",
           color: "rgba(255,255,255,0.8)",
           lineHeight: 1.8,
           fontStyle: "italic",
@@ -108,7 +143,7 @@ function LandingPage({ onStart }) {
         {scene.final && showButton && (
           <div style={{ marginTop: "3rem", animation: "fadeSlideUp 0.8s ease forwards" }}>
             <button
-              onClick={onStart}
+              onClick={(e) => { handleButtonClick(e); onStart(); }}
               style={{
                 padding: "1rem 2.5rem",
                 fontSize: "1.2rem",
@@ -140,7 +175,8 @@ function LandingPage({ onStart }) {
       {/* Skip button */}
       {!scene.final && (
         <button
-          onClick={() => {
+          onClick={(e) => {
+            handleButtonClick(e);
             setVisible(false);
             setTimeout(() => {
               setCurrentScene(STORY_SCENES.length - 1);
