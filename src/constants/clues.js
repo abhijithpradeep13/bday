@@ -7,7 +7,7 @@ export const CLUES = [
     rewardTitle: "Memory Unlocked: The Beginning 🌟",
     rewardText: "Remember when this whole adventure started? Just like solving your first clue, every great story has a first page. You've always been the kind of person who figures things out — one step at a time, with style.",
     icon: "🔑",
-    nodePos: { x: 15, y: 20 },
+    nodePos: { x: 10, y: 30 },
     color: "#FFD700",
   },
   {
@@ -18,7 +18,7 @@ export const CLUES = [
     rewardTitle: "Memory Unlocked: The Journey 🚶‍♀️",
     rewardText: "Every step you've taken has led here. The paths you've chosen, the places you've gone, the moments you've created — they all matter. And they've all been spectacular, even the detours.",
     icon: "👣",
-    nodePos: { x: 65, y: 12 },
+    nodePos: { x: 30, y: 15 },
     color: "#9B59B6",
   },
   {
@@ -29,7 +29,7 @@ export const CLUES = [
     rewardTitle: "Memory Unlocked: The Laughs 😂",
     rewardText: "Some things echo forever — your laugh, your energy, the way you make every room brighter just by walking in. The good times have a way of bouncing back, again and again.",
     icon: "🌊",
-    nodePos: { x: 35, y: 52 },
+    nodePos: { x: 50, y: 50 },
     color: "#E74C3C",
   },
   {
@@ -40,7 +40,7 @@ export const CLUES = [
     rewardTitle: "Memory Unlocked: The Adventures 🌍",
     rewardText: "You've always had a map in your heart — a sense of where you're going even when the road isn't clear. Here's to every adventure, every detour, every destination still to come.",
     icon: "🗺️",
-    nodePos: { x: 75, y: 55 },
+    nodePos: { x: 70, y: 25 },
     color: "#1ABC9C",
   },
   {
@@ -51,7 +51,7 @@ export const CLUES = [
     rewardTitle: "Memory Unlocked: The Future ✨",
     rewardText: "The greatest treasure isn't in any vault. It's in the years ahead — full of moments not yet lived, laughter not yet laughed, and adventures not yet had. And you, Your Majesty, are ready for all of them.",
     icon: "❄️",
-    nodePos: { x: 50, y: 82 },
+    nodePos: { x: 90, y: 45 },
     color: "#F39C12",
   },
 ];

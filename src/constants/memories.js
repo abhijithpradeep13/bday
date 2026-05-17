@@ -6,9 +6,9 @@ import img5 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.54 PM (2).j
 import img6 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.54 PM.jpeg";
 import img7 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.55 PM (1).jpeg";
 import img8 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.55 PM.jpeg";
-import img9 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.56 PM (1).jpeg";
-import img10 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.56 PM (2).jpeg";
-import img11 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.56 PM.jpeg";
+import img9 from "../assets/images/WhatsApp Image 2026-05-16 at 1.17.48 PM.jpeg";
+import img10 from "../assets/images/WhatsApp Image 2026-05-16 at 1.19.37 PM.jpeg";
+import img11 from "../assets/images/WhatsApp Image 2026-05-16 at 1.22.00 PM.jpeg";
 import img12 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.57 PM (1).jpeg";
 import img13 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.57 PM.jpeg";
 import img14 from "../assets/images/WhatsApp Image 2026-05-16 at 1.08.44 PM (1).jpeg";
@@ -24,10 +24,10 @@ import img23 from "../assets/images/WhatsApp Image 2026-05-16 at 1.17.02 PM.jpeg
 import img24 from "../assets/images/WhatsApp Image 2026-05-16 at 1.17.03 PM (1).jpeg";
 import img25 from "../assets/images/WhatsApp Image 2026-05-16 at 1.17.03 PM.jpeg";
 import img26 from "../assets/images/WhatsApp Image 2026-05-16 at 1.17.47 PM.jpeg";
-import img27 from "../assets/images/WhatsApp Image 2026-05-16 at 1.17.48 PM.jpeg";
-import img28 from "../assets/images/WhatsApp Image 2026-05-16 at 1.19.37 PM.jpeg";
+import img27 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.56 PM (1).jpeg";
+import img28 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.56 PM (2).jpeg";
 import img29 from "../assets/images/WhatsApp Image 2026-05-16 at 1.20.19 PM.jpeg";
-import img30 from "../assets/images/WhatsApp Image 2026-05-16 at 1.22.00 PM.jpeg";
+import img30 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.56 PM.jpeg";
 
 export const MEMORIES = [
   { caption: "Queen of Everything 👑", text: "Shortest ruler. Biggest heart. Most squeaky.", rotate: -3, image: img1 },

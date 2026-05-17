@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { STORY_SCENES } from "../constants";
 import StarField from "./StarField";
 import FloatingParticles from "./FloatingParticles";
-import FloatingImages from "./FloatingImages";
 import { handleButtonClick } from "../utils/buttonEffects";
+import backgroundVideo from "../assets/video1.mp4";
 
 function LandingPage({ onStart, onTestBypass }) {
   // TO BE DISCARDED: Added onTestBypass prop for testing purposes
@@ -41,9 +41,27 @@ function LandingPage({ onStart, onTestBypass }) {
       overflow: "hidden",
       fontFamily: "'Comic Neue', cursive",
     }}>
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 1,
+          opacity: 0.7,
+        }}
+      >
+        <source src={backgroundVideo} type="video/mp4" />
+      </video>
+
       <StarField />
       <FloatingParticles />
-      <FloatingImages />
 
       {/* TO BE DISCARDED: Test button for development */}
       {onTestBypass && (
@@ -118,26 +136,41 @@ function LandingPage({ onStart, onTestBypass }) {
           <div style={{ height: 1, width: 40, background: `linear-gradient(to left, transparent, ${scene.color})` }} />
         </div>
 
-        <h1 style={{
-          fontSize: "clamp(1.82rem, 6.5vw, 2.86rem)",
-          fontWeight: "bold",
-          color: scene.color,
-          marginBottom: "1rem",
-          textShadow: `0 0 30px ${scene.color}60`,
-          lineHeight: 1.3,
-          fontFamily: "'Comic Neue', cursive",
+        {/* Glass Box Enclosing Title and Text */}
+        <div style={{
+          padding: "2rem",
+          background: "rgba(15, 10, 35, 0.25)",
+          backdropFilter: "blur(10px)",
+          borderRadius: "20px",
+          border: "1.5px solid rgba(255, 215, 0, 0.15)",
+          boxShadow: `
+            0 4px 20px 0 rgba(173, 175, 208, 0.3),
+            inset 0 0 20px rgba(255, 215, 0, 0.06),
+            0 0 40px rgba(255, 215, 0, 0.1)
+          `,
         }}>
-          {scene.title}
-        </h1>
+          <h1 style={{
+            fontSize: "clamp(1.82rem, 6.5vw, 2.86rem)",
+            fontWeight: "bold",
+            color: scene.color,
+            marginBottom: "1rem",
+            textShadow: `0 0 30px ${scene.color}60`,
+            lineHeight: 1.3,
+            fontFamily: "'Comic Neue', cursive",
+          }}>
+            {scene.title}
+          </h1>
 
-        <p style={{
-          fontSize: "clamp(1.3rem, 3.9vw, 1.56rem)",
-          color: "rgba(255,255,255,0.8)",
-          lineHeight: 1.8,
-          fontStyle: "italic",
-        }}>
-          {scene.text}
-        </p>
+          <p style={{
+            fontSize: "clamp(1.3rem, 3.9vw, 1.56rem)",
+            color: "rgba(255,255,255,0.8)",
+            lineHeight: 1.8,
+            fontStyle: "italic",
+            margin: 0,
+          }}>
+            {scene.text}
+          </p>
+        </div>
 
         {/* Final scene button */}
         {scene.final && showButton && (
