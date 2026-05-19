@@ -28,6 +28,7 @@ export const STORY_SCENES = [
     title: "A secret was brewing...",
     text: "Deep in the Minionland vaults, a loyal friend began crafting something extraordinary. A treasure worthy of a queen who saved an entire banana kingdom.",
     color: "#1ABC9C",
+    highlightPhrase: "a loyal friend",
   },
   {
     emoji: "🗺️",

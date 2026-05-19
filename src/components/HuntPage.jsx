@@ -33,7 +33,7 @@ function HuntPage({ onComplete, initialSolved = [] }) {
       <FloatingParticles count={20} />
 
       {/* Header */}
-      <div style={{ textAlign: "center", paddingTop: "clamp(1.5rem, 4vw, 3rem)", position: "relative", zIndex: 5 }}>
+      <div style={{ textAlign: "center", paddingTop: "clamp(0.8rem, 2vw, 1.5rem)", position: "relative", zIndex: 5 }}>
         <div style={{
           display: "inline-flex",
           gap: 8,
@@ -64,7 +64,7 @@ function HuntPage({ onComplete, initialSolved = [] }) {
         {/* Progress bar */}
         <div style={{
           width: "min(300px, 80vw)",
-          margin: "1rem auto",
+          margin: "clamp(0.5rem, 1vw, 0.75rem) auto",
           height: 6,
           background: "rgba(255,255,255,0.1)",
           borderRadius: 3,
@@ -82,7 +82,7 @@ function HuntPage({ onComplete, initialSolved = [] }) {
       </div>
 
       {/* Map */}
-      <div style={{ padding: "1rem 1rem 2rem", position: "relative", zIndex: 5 }}>
+      <div style={{ padding: "clamp(0.5rem, 1vw, 0.75rem) 1rem", position: "relative", zIndex: 5 }}>
         <TreasureMap solvedClues={solvedClues} onSelectClue={setActiveClue} />
 
         {/* Legend */}
@@ -90,7 +90,7 @@ function HuntPage({ onComplete, initialSolved = [] }) {
           display: "flex",
           justifyContent: "center",
           gap: "clamp(0.8rem, 3vw, 1.5rem)",
-          marginTop: "1rem",
+          marginTop: "clamp(0.5rem, 1vw, 0.75rem)",
           flexWrap: "wrap",
         }}>
           {[["🔒", "Locked", "rgba(255,255,255,0.3)"], ["✨", "Unlocked", "#FFD700"], ["✅", "Solved", "#1ABC9C"]].map(([icon, label, color]) => (

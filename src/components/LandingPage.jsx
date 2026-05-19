@@ -19,7 +19,7 @@ function LandingPage({ onStart, onTestBypass }) {
           setCurrentScene((s) => s + 1);
           setVisible(true);
         }, 500);
-      }, 6500);
+      }, 9500);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => setShowButton(true), 800);
@@ -110,7 +110,7 @@ function LandingPage({ onStart, onTestBypass }) {
       {/* Scene content */}
       <div style={{
         textAlign: "center",
-        padding: "2rem",
+        padding: "clamp(0.8rem, 2vw, 1.2rem)",
         maxWidth: 600,
         position: "relative",
         zIndex: 5,
@@ -121,7 +121,7 @@ function LandingPage({ onStart, onTestBypass }) {
         {/* Emoji with glow */}
         <div style={{
           fontSize: "clamp(83.2px, 19.5vw, 130px)",
-          marginBottom: "1.5rem",
+          marginBottom: "clamp(0.8rem, 2vw, 1rem)",
           filter: `drop-shadow(0 0 30px ${scene.color}80)`,
           animation: "bounce-gentle 3s ease-in-out infinite",
           display: "block",
@@ -130,7 +130,7 @@ function LandingPage({ onStart, onTestBypass }) {
         </div>
 
         {/* Decorative line */}
-        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "1.5rem", justifyContent: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "clamp(0.8rem, 1.5vw, 1rem)", justifyContent: "center" }}>
           <div style={{ height: 1, width: 40, background: `linear-gradient(to right, transparent, ${scene.color})` }} />
           <div style={{ width: 6, height: 6, borderRadius: "50%", background: scene.color, boxShadow: `0 0 10px ${scene.color}` }} />
           <div style={{ height: 1, width: 40, background: `linear-gradient(to left, transparent, ${scene.color})` }} />
@@ -138,22 +138,22 @@ function LandingPage({ onStart, onTestBypass }) {
 
         {/* Glass Box Enclosing Title and Text */}
         <div style={{
-          padding: "2rem",
-          background: "rgba(15, 10, 35, 0.25)",
-          backdropFilter: "blur(10px)",
+          padding: "clamp(1rem, 2vw, 1.5rem)",
+          background: "rgba(0, 0, 0, 0.35)",
+          backdropFilter: "blur(20px)",
           borderRadius: "20px",
           border: "1.5px solid rgba(255, 215, 0, 0.15)",
           boxShadow: `
-            0 4px 20px 0 rgba(173, 175, 208, 0.3),
-            inset 0 0 20px rgba(255, 215, 0, 0.06),
-            0 0 40px rgba(255, 215, 0, 0.1)
+            0 4px 20px 0 rgba(15, 17, 44, 0.3),
+            inset 0 0 20px rgba(37, 33, 14, 0.06),
+            0 0 40px rgba(0, 0, 0, 0.1)
           `,
         }}>
           <h1 style={{
-            fontSize: "clamp(1.82rem, 6.5vw, 2.86rem)",
+            fontSize: "clamp(1.5rem, 5vw, 2.2rem)",
             fontWeight: "bold",
             color: scene.color,
-            marginBottom: "1rem",
+            marginBottom: "clamp(0.5rem, 1vw, 0.8rem)",
             textShadow: `0 0 30px ${scene.color}60`,
             lineHeight: 1.3,
             fontFamily: "'Comic Neue', cursive",
@@ -168,7 +168,25 @@ function LandingPage({ onStart, onTestBypass }) {
             fontStyle: "italic",
             margin: 0,
           }}>
-            {scene.text}
+            {scene.highlightPhrase ? (
+              <>
+                {scene.text.split(scene.highlightPhrase).map((part, index, array) => (
+                  <span key={index}>
+                    {part}
+                    {index < array.length - 1 && (
+                      <span style={{
+                        animation: "highlight-reveal 2s ease-in-out 0.5s forwards",
+                        display: "inline-block",
+                      }}>
+                        {scene.highlightPhrase}
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </>
+            ) : (
+              scene.text
+            )}
           </p>
         </div>
 
@@ -246,6 +264,18 @@ function LandingPage({ onStart, onTestBypass }) {
         @keyframes bounce-gentle {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-6px); }
+        }
+        @keyframes highlight-reveal {
+          0% { 
+            color: rgba(255,255,255,0.8);
+            text-shadow: none;
+            font-weight: normal;
+          }
+          100% { 
+            color: #FFD700;
+            text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.4);
+            font-weight: bold;
+          }
         }
       `}</style>
     </div>

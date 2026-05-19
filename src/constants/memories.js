@@ -12,7 +12,7 @@ import img11 from "../assets/images/WhatsApp Image 2026-05-16 at 1.22.00 PM.jpeg
 import img12 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.57 PM (1).jpeg";
 import img13 from "../assets/images/WhatsApp Image 2026-05-16 at 1.06.57 PM.jpeg";
 import img14 from "../assets/images/WhatsApp Image 2026-05-16 at 1.08.44 PM (1).jpeg";
-import img15 from "../assets/images/WhatsApp Image 2026-05-16 at 1.08.44 PM.jpeg";
+import img15 from "../assets/images/WhatsApp Image 2026-05-16 at 1.08.44 PM.png";
 import img16 from "../assets/images/WhatsApp Image 2026-05-16 at 1.08.45 PM (1).jpeg";
 import img17 from "../assets/images/WhatsApp Image 2026-05-16 at 1.08.45 PM (2).jpeg";
 import img18 from "../assets/images/WhatsApp Image 2026-05-16 at 1.08.45 PM.jpeg";
@@ -39,7 +39,7 @@ export const MEMORIES = [
   { caption: "Laughter Fills the Hall 😄", text: "The kingdom echoes with joy and silly jokes.", rotate: -2, image: img7 },
   { caption: "Kindness Warrior 💫", text: "She turns frowns upside down every single day.", rotate: 3, image: img8 },
   { caption: "Dream Maker ✨", text: "Even the impossible seems possible with her.", rotate: -1, image: img9 },
-  { caption: "Forever Friend 🤝", text: "Loyal, true, and always there when needed.", rotate: 2, image: img10 },
+  { caption: "Forever Friend 🤝", text: "Loyal, true, and always there when needed.", rotate: 2, image: img10, scale: 1.4 },
   { caption: "Treasure Bearer 💎", text: "The real treasure is knowing her.", rotate: -4, image: img11 },
   { caption: "Star of Minionland ⭐", text: "She shines brighter than all the stars combined.", rotate: 3, image: img12 },
   { caption: "Hope's Beacon 🔥", text: "In dark times, she lights the way forward.", rotate: 0, image: img13 },
@@ -51,7 +51,7 @@ export const MEMORIES = [
   { caption: "Sunshine Spreader ☀️", text: "Her warmth brightens even the cloudiest days.", rotate: -1, image: img19 },
   { caption: "Wisdom Keeper 📖", text: "Old soul in a young spirit, guiding us well.", rotate: 3, image: img20 },
   { caption: "Laughter's Echo 🎵", text: "Her giggles are contagious and unforgettable.", rotate: -3, image: img21 },
-  { caption: "Heart of Gold 🏆", text: "She gives without counting the cost.", rotate: 2, image: img22 },
+  { caption: "Heart of Gold 🏆", text: "She gives without counting the cost.", rotate: 2, image: img22, scale: 1.1 },
   { caption: "Wonder Seeker 🔭", text: "Always curious, always learning, always growing.", rotate: 0, image: img23 },
   { caption: "Peace Maker 🕊️", text: "Where there is conflict, she brings harmony.", rotate: -2, image: img24 },
   { caption: "Spark Igniter ⚡", text: "She lights the fire of inspiration in others.", rotate: 1, image: img25 },

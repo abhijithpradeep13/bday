@@ -5,7 +5,7 @@ function MemoryGallery() {
   useEffect(() => {
     let scrollPosition = 0;
     let scrollDirection = 1;
-    const scrollSpeed = 0.5; // Reduced speed for more leisurely viewing
+    const scrollSpeed = 0.4; // Reduced speed for more leisurely viewing
     let animationId;
 
     const autoScroll = () => {
@@ -83,6 +83,7 @@ function MemoryGallery() {
                   height: "100%",
                   objectFit: "cover",
                   borderRadius: 2,
+                  transform: mem.scale ? `scale(${mem.scale})` : "scale(1)",
                 }}
               />
             </div>

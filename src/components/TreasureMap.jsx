@@ -105,7 +105,6 @@ function TreasureMap({ solvedClues, onSelectClue }) {
               style={{ cursor: node.unlocked ? "pointer" : "default" }}
               onClick={(e) => {
                 if (node.unlocked) {
-                  playClickSound();
                   createClickSparkles({ currentTarget: e.target });
                   onSelectClue(node);
                 }

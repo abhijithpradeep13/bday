@@ -120,7 +120,6 @@ export const createScreenFlash = () => {
 };
 
 export const handleButtonClick = (event) => {
-  playClickSound();
   createClickSparkles(event);
   createScreenFlash();
 };
