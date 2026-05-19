@@ -8,3 +8,4 @@ export { default as HuntPage } from "./HuntPage";
 export { default as VaultDoor } from "./VaultDoor";
 export { default as MemoryGallery } from "./MemoryGallery";
 export { default as FinalPage } from "./FinalPage";
+export { default as StoryIntro } from "./StoryIntro";

@@ -29,7 +29,7 @@ function FinalPage() {
     }
   }, [phase]);
 
-  const VALID_ANSWERS = ["nandana", "the queen", "you", "love", "friendship", "nandana herself"];
+  const VALID_ANSWERS = ["nandukili"];
 
   const handlePassword = () => {
     const norm = password.trim().toLowerCase();
@@ -279,10 +279,10 @@ function FinalPage() {
             marginBottom: "0.75rem",
             fontStyle: "italic",
           }}>
-            "What is the most precious treasure in Minionland?"
+            "Entha ninte peru ?? 😊"
           </p>
           <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8rem", marginBottom: "1.5rem" }}>
-            (Hint: It's been here all along 💛)
+            (Hint: enikm aa name undd 💛)
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
