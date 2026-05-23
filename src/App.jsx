@@ -32,8 +32,7 @@ export default function App() {
         <StoryIntro onComplete={() => navigateToPage("landing")} />
       )}
       {page === "landing" && (
-        // TO BE DISCARDED: Added onTestBypass prop for testing purposes
-        <LandingPage onStart={() => navigateToPage("hunt")} onTestBypass={() => navigateToPage("final")} />
+        <LandingPage onStart={() => navigateToPage("hunt")} />
       )}
       {page === "hunt" && (
         <HuntPage

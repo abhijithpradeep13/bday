@@ -5,8 +5,7 @@ import FloatingParticles from "./FloatingParticles";
 import { handleButtonClick } from "../utils/buttonEffects";
 import backgroundVideo from "../assets/video1.mp4";
 
-function LandingPage({ onStart, onTestBypass }) {
-  // TO BE DISCARDED: Added onTestBypass prop for testing purposes
+function LandingPage({ onStart }) {
   const [currentScene, setCurrentScene] = useState(0);
   const [visible, setVisible] = useState(true);
   const [showButton, setShowButton] = useState(false);
@@ -62,36 +61,6 @@ function LandingPage({ onStart, onTestBypass }) {
 
       <StarField />
       <FloatingParticles />
-
-      {/* TO BE DISCARDED: Test button for development */}
-      {onTestBypass && (
-        <button
-          onClick={(e) => { handleButtonClick(e); onTestBypass(); }}
-          style={{
-            position: "absolute",
-            top: 16,
-            right: 16,
-            padding: "0.6rem 1.2rem",
-            fontSize: "0.85rem",
-            fontFamily: "'Georgia', serif",
-            fontWeight: "bold",
-            color: "#0d0a2e",
-            background: "rgba(255, 215, 0, 0.7)",
-            border: "none",
-            borderRadius: 20,
-            cursor: "pointer",
-            boxShadow: "0 0 20px rgba(255,215,0,0.3)",
-            transition: "all 0.2s ease",
-            zIndex: 20,
-          }}
-          onMouseEnter={(e) => e.target.style.background = "rgba(255, 215, 0, 1)"}
-          onMouseLeave={(e) => e.target.style.background = "rgba(255, 215, 0, 0.7)"}
-          title="Skip to Final Page"
-        >
-          TEST
-        </button>
-      )}
-      {/* TO BE DISCARDED: End of test button */}
 
       {/* Progress dots */}
       <div style={{ position: "absolute", top: 24, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 10 }}>
