@@ -9,7 +9,7 @@ export const STORY_SCENES = [
     emoji: "🌩️",
     title: "But then... disaster struck.",
     text: "A massive magical storm appeared from nowhere, turning the skies purple and the bananas into overripe mush. Chaos. Pure banana chaos.",
-    color: "#9B59B6",
+    color: "#a0193f",
   },
   {
     emoji: "⚔️",
